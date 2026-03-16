@@ -36,7 +36,8 @@ function showLoadError(message) {
 
 function parseLessons(markdown) {
   const lines = markdown.split('\n');
-  let module = 'Introdução';
+  let module = null;
+  let inCurriculum = false;
 
   return lines
     .map((line) => line.trim())
@@ -44,10 +45,16 @@ function parseLessons(markdown) {
     .flatMap((line) => {
       if (/^##\s+Módulo\s+\d+/i.test(line)) {
         module = line.replace(/^##\s+/, '').trim();
+        inCurriculum = true;
         return [];
       }
 
-      if (!/^\d+\.\s+\*\*/.test(line)) {
+      if (/^##\s+/.test(line)) {
+        inCurriculum = false;
+        return [];
+      }
+
+      if (!inCurriculum || !/^\d+\.\s+\*\*/.test(line)) {
         return [];
       }
 
