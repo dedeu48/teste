@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plataforma — Curso de Hebraico Bíblico</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Curso de Hebraico Bíblico</h1>
+    <p>Visualizador com progresso, busca e revisão de vocabulário.</p>
+  </header>
+
+  <main class="layout">
+    <aside class="panel">
+      <h2>Lições</h2>
+      <input id="search" type="search" placeholder="Buscar lição, módulo ou número..." />
+      <div class="progress-wrap">
+        <label for="progress">Progresso</label>
+        <progress id="progress" value="0" max="200"></progress>
+        <span id="progress-text">0/200 concluídas</span>
+      </div>
+      <button id="clear-progress" type="button" class="secondary">Limpar progresso</button>
+      <ul id="lesson-list"></ul>
+    </aside>
+
+    <section class="panel content">
+      <div class="lesson-toolbar">
+        <button id="prev-lesson" type="button" class="secondary">← Anterior</button>
+        <span id="module-tag" class="module-tag">Módulo</span>
+        <button id="next-lesson" type="button" class="secondary">Próxima →</button>
+      </div>
+      <article id="lesson-content">
+        <h2>Selecione uma lição</h2>
+        <p>Escolha uma lição na lista para abrir o conteúdo.</p>
+      </article>
+    </section>
+
+    <aside class="panel vocab">
+      <h2>Revisão de vocabulário</h2>
+      <button id="shuffle" type="button">Nova palavra</button>
+      <div id="card" class="card">
+        <p class="muted">Clique em “Nova palavra”.</p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
